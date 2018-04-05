@@ -1,6 +1,10 @@
 # graphene-file-upload
 `graphene-file-upload` is a drop in replacement for the the GraphQL view in Graphene for Django. It supports multi-part file uploads that adhere to the Multipart Request Spec (https://github.com/jaydenseric/graphql-multipart-request-spec).
 
+## Installation:
+`pip install graphene-file-upload`
+
+## Usage:
 To use, import the view, then add to your list of urls (replace previous GraphQL view).
 
 ```    
