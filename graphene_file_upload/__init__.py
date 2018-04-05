@@ -2,7 +2,7 @@ from graphene_django.views import GraphQLView
 import json
 import graphene
 
-# Need to implement this spec:
+# Implement this spec:
 # https://github.com/jaydenseric/graphql-multipart-request-spec
 
 # "Multipart GraphQL server requests are handled by apollo-upload-server middleware.
@@ -17,13 +17,9 @@ class ModifiedGraphQLView(GraphQLView):
 
     @staticmethod
     def get_graphql_params(request, data):
-        # print("_____GET GRAPH QL PARAMS _______")
-        # pp = pprint.PrettyPrinter()
-
         request_type = request.META.get("CONTENT_TYPE")
-        # print(request_type)
+
         if "multipart/form-data" in request_type:
-            # print('MULTIPART')
             query, variables, operation_name, id = super(ModifiedGraphQLView, ModifiedGraphQLView).get_graphql_params(request, data)
             operations = data.get('operations')
             files_map = data.get('map')
@@ -35,9 +31,6 @@ class ModifiedGraphQLView(GraphQLView):
                 files_map = json.loads(files_map)
 
                 variables = operations.get('variables')
-                print("\n\n*******")
-                # pp.pprint(variables)
-
                 for file_key in files_map:
                     # file key is which file it is in the form-data
                     file_instances = files_map[file_key]
@@ -49,10 +42,6 @@ class ModifiedGraphQLView(GraphQLView):
 
                 query = operations.get('query')
                 variables = operations.get('variables')
-
-
-                # pp.pprint("operations")
-                # pp.pprint(operations)
 
             except Exception as e:
                 raise e
@@ -90,11 +79,6 @@ def getShallowProperty(obj, prop):
         return None
 
 def obj_set(obj, path, value, doNotReplace):
-    # pp = pprint.PrettyPrinter()
-
-    # print('\n\npath')
-    # print(path)
-
     if type(path) is int:
         path = [path]
     if path is None or len(path) == 0:
@@ -105,9 +89,6 @@ def obj_set(obj, path, value, doNotReplace):
 
     currentPath = path[0]
     currentValue = getShallowProperty(obj, currentPath)
-
-    # print('current value')
-    # pp.pprint(currentValue)
 
     if len(path) == 1:
         if currentValue is None or not doNotReplace:
@@ -120,7 +101,6 @@ def obj_set(obj, path, value, doNotReplace):
             else:
                 obj[currentPath] = {}
         except Exception as e:
-            # print(e)
             pass
             # This line may need to be put back in but it will break it because it assumes an array.
             # obj[currentPath] = {}
@@ -135,12 +115,8 @@ class Upload(graphene.types.Scalar):
 
     @staticmethod
     def parse_literal(node):
-        # print('node')
-        # print(node)
         return node
 
     @staticmethod
     def parse_value(value):
-        # print('parse value')
-        # print(value)
         return value
