@@ -13,7 +13,7 @@ import graphene
 # Basically we need to do all of the above.
 
 class ModifiedGraphQLView(GraphQLView):
-    graphiql_template = 'graphiql.html'
+    # graphiql_template = 'graphiql.html'
 
     @staticmethod
     def get_graphql_params(request, data):

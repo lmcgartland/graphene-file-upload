@@ -19,7 +19,7 @@ except(IOError, ImportError):
 setup(
   name = 'graphene_file_upload',
   packages = ['graphene_file_upload'], # this must be the same as the name above
-  version = '0.1.0',
+  version = '0.1.1',
   description = 'Lib for adding file upload functionality to GraphQL mutations in Graphene Django',
   long_description=long_description,
   long_description_content_type='text/x-rst',
