@@ -7,7 +7,7 @@
 ## Usage:
 To use, import the view, then add to your list of urls (replace previous GraphQL view).
 
-```    
+```python
 from graphene_file_upload import ModifiedGraphQLView
 
 urlpatterns = [
@@ -17,7 +17,7 @@ urlpatterns = [
 
 To add an upload type to your mutation, import and use `Upload`. Upload is a scalar type.
 
-```
+```python
 from graphene_file_upload import Upload
 
 class UploadMutation(graphene.Mutation):
