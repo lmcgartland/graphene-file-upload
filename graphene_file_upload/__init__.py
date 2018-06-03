@@ -17,7 +17,7 @@ class ModifiedGraphQLView(GraphQLView):
 
     @staticmethod
     def get_graphql_params(request, data):
-        request_type = request.META.get("CONTENT_TYPE")
+        request_type = request.META.get("CONTENT_TYPE", '')
 
         if "multipart/form-data" in request_type:
             query, variables, operation_name, id = super(ModifiedGraphQLView, ModifiedGraphQLView).get_graphql_params(request, data)
