@@ -22,9 +22,7 @@ class ModifiedGraphQLView(GraphQLView):
         if "multipart/form-data" in request_type:
             query, variables, operation_name, id = super(ModifiedGraphQLView, ModifiedGraphQLView).get_graphql_params(request, data)
             operations = data.get('operations')
-            files_map = data.get('map')
-
-
+            files_map = data.get('map', "{}")
 
             try:
                 operations = json.loads(operations)
