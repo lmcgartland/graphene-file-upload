@@ -1,10 +1,13 @@
 # graphene-file-upload
+
 `graphene-file-upload` is a drop in replacement for the the GraphQL view in Graphene for Django. It supports multi-part file uploads that adhere to the Multipart Request Spec (https://github.com/jaydenseric/graphql-multipart-request-spec).
 
 ## Installation:
+
 `pip install graphene-file-upload`
 
 ## Usage:
+
 To use, import the view, then add to your list of urls (replace previous GraphQL view).
 
 ```python
@@ -33,3 +36,23 @@ class UploadMutation(graphene.Mutation):
 
         return UploadMutation(success=True)
 ```
+
+## Other Notes
+
+#### Testing:
+
+TO-DO, still need to write tests for Django and Flask views.
+
+#### Packaging for PyPi:
+
+Build the distribution.
+
+`python3 setup.py sdist bdist_wheel`
+
+Upload to PyPi test servers.
+
+`twine upload --repository-url https://test.pypi.org/legacy/ dist/*`
+
+Upload to PyPi production servers.
+
+`twine upload dist/*`
