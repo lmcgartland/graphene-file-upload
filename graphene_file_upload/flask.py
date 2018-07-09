@@ -5,7 +5,7 @@ from graphql_server import load_json_body
 from .utils import place_files_in_operations
 
 
-class ModifiedGraphQLView(GraphQLView):
+class FileUploadGraphQLView(GraphQLView):
 
     def parse_body(self):
         content_type = request.mimetype
@@ -17,4 +17,4 @@ class ModifiedGraphQLView(GraphQLView):
                 files_map,
                 request.files
             )
-        return super(ModifiedGraphQLView, self).parse_body()
+        return super(FileUploadGraphQLView, self).parse_body()

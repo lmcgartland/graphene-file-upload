@@ -28,17 +28,16 @@ class UploadMutation(graphene.Mutation):
         return UploadMutation(success=True)
 ```
 
-
 ### Django Integration:
 
 To use, import the view, then add to your list of urls (replace previous
 GraphQL view).
 
 ```python
-from graphene_file_upload.django import ModifiedGraphQLView
+from graphene_file_upload.django import FileUploadGraphQLView
 
 urlpatterns = [
-  url(r'^graphql', ModifiedGraphQLView.as_view(graphiql=True)),
+  url(r'^graphql', FileUploadGraphQLView.as_view(graphiql=True)),
 ]
 ```
 
@@ -51,11 +50,11 @@ writing this README, you must install `flask-graphql` with
 Simply import the modified view and create a new url rule on your app:
 
 ```python
-from graphene_file_upload.flask import ModifiedGraphQLView
+from graphene_file_upload.flask import FileUploadGraphQLView
 
 app.add_url_rule(
     '/graphql',
-    view_func=ModifiedGraphQLView.as_view(
+    view_func=FileUploadGraphQLView.as_view(
       ...
     )
 )
