@@ -1,12 +1,27 @@
 import unittest
+from .utils import place_files_in_operations
 
-def fun(x):
-    return x + 1
 
-class TestDjangoFileUploadGraphQLView(unittest.TestCase):
+class TestFilePlacement(unittest.TestCase):
+    def setUp(self):
+
+        # load test operations
+        self.operations = json.loads(request.POST.get('operations', '{}'))
+
+        # load test file map
+        self.files_map = json.loads(request.POST.get('map', '{}'))
+
+        # load test files
+        self.FILES = []
+
     def test(self):
-        self.assertEqual(fun(3), 4)
 
-class TestFlaskFileUploadGraphQLView(unittest.TestCase):
-    def test(self):
-        self.assertEqual(fun(3), 4)
+        # This is what the operations should turn out to be
+        correct_operations = {}
+
+        #check to see if the file placer is working
+        self.assertEqual(place_files_in_operations(
+            operations,
+            files_map,
+            request.FILES
+        ), correct_operations)
