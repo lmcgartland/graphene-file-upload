@@ -59,3 +59,24 @@ app.add_url_rule(
     )
 )
 ```
+
+## Other Notes
+
+#### Testing:
+
+TO-DO, still need to write tests for Django and Flask views.
+
+#### Packaging for PyPi:
+
+Build the distribution.
+
+`python3 setup.py sdist bdist_wheel`
+
+Upload to PyPi test servers.
+
+`twine upload --repository-url https://test.pypi.org/legacy/ dist/*`
+
+Upload to PyPi production servers.
+
+`twine upload dist/*`
+
