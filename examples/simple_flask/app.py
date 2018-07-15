@@ -1,7 +1,7 @@
 from flask import Flask
 import graphene
 from graphene_file_upload.scalars import Upload
-from graphene_file_upload.flask import ModifiedGraphQLView
+from graphene_file_upload.flask import FileUploadGraphQLView
 
 ##################################################
 # Define the schema
@@ -34,7 +34,7 @@ app = Flask(__name__)
 
 app.add_url_rule(
     '/graphql',
-    view_func=ModifiedGraphQLView.as_view(
+    view_func=FileUploadGraphQLView.as_view(
         'graphql',
         graphiql=True,
         schema=schema,
