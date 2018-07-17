@@ -60,13 +60,11 @@ app.add_url_rule(
 )
 ```
 
-## Other Notes
-
-#### Testing:
+### Testing:
 
 TO-DO, still need to write tests for Django and Flask views.
 
-#### Packaging for PyPi:
+### Packaging for PyPi:
 
 Build the distribution.
 
@@ -79,4 +77,3 @@ Upload to PyPi test servers.
 Upload to PyPi production servers.
 
 `twine upload dist/*`
-
