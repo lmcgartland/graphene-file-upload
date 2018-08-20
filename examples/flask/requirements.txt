@@ -1,0 +1,4 @@
+Flask==1.0.2
+Flask-GraphQL==2.0rc0
+graphene==2.1.2
+-e ../../
