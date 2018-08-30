@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/graphene-file-upload.svg)](https://badge.fury.io/py/graphene-file-upload)
+
 # graphene-file-upload
 
 `graphene-file-upload` is a drop in replacement for the the GraphQL view in
