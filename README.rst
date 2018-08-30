@@ -1,3 +1,6 @@
+.. image:: https://badge.fury.io/py/graphene-file-upload.svg
+    :target: https://badge.fury.io/py/graphene-file-upload
+
 graphene-file-upload
 ====================
 
