@@ -8,6 +8,8 @@ graphene-file-upload
 view in Graphene for Django, and for Flask-Graphql. It supports
 multi-part file uploads that adhere to the `Multipart Request Spec`_.
 
+It currently supports Python 3.4+.
+
 Installation:
 -------------
 

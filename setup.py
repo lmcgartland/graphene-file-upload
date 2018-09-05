@@ -15,19 +15,34 @@ here = path.abspath(path.dirname(__file__))
 
 long_description = open('README.rst').read()
 
+flask_requires = [
+    'Flask>=1.0.2',
+    'graphene>=2.1.2',
+    'Flask-Graphql>=2.0.0',
+]
+
+django_requires = []
+tests_require = flask_requires + django_requires + [
+    'pytest>=3.7.4',
+]
 
 setup(
-  name = 'graphene_file_upload',
-  packages = ['graphene_file_upload'], # this must be the same as the name above
-  version = '1.0.0',
-  description = 'Lib for adding file upload functionality to GraphQL mutations in Graphene Django and Flask-Graphql',
-  long_description=long_description,
-  long_description_content_type='text/x-rst',
-  author = 'Lucas McGartland',
-  author_email = 'lucasmcgartland@gmail.com',
-  url = 'https://github.com/lmcgartland/graphene-file-upload', # use the URL to the github repo
-  # download_url = 'https://github.com/lmcgartland/graphene-file-upload/archive/0.1.0.tar.gz',
-  keywords = ['graphql', 'graphene', 'apollo',  'upload'], # arbitrary keywords
-  classifiers = [],
-  # install_requires=[]
+    name = 'graphene_file_upload',
+    packages = ['graphene_file_upload'], # this must be the same as the name above
+    version = '1.0.0',
+    description = 'Lib for adding file upload functionality to GraphQL mutations in Graphene Django and Flask-Graphql',
+    long_description=long_description,
+    long_description_content_type='text/x-rst',
+    author = 'Lucas McGartland',
+    author_email = 'lucasmcgartland@gmail.com',
+    url = 'https://github.com/lmcgartland/graphene-file-upload', # use the URL to the github repo
+    # download_url = 'https://github.com/lmcgartland/graphene-file-upload/archive/0.1.0.tar.gz',
+    keywords = ['graphql', 'graphene', 'apollo',  'upload'], # arbitrary keywords
+    classifiers = [],
+    tests_require=tests_require,
+    extras_require={
+        'test': tests_require,
+        'flask': flask_requires,
+        'django': django_requires,
+    },
 )
