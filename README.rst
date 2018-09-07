@@ -70,10 +70,31 @@ Simply import the modified view and create a new url rule on your app:
        )
    )
 
-Testing:
-~~~~~~~~
+Contributing:
+~~~~~~~~~~~~~
 
-TO-DO, still need to write tests for Django and Flask views.
+If you'd like to contribute, please run the test suite prior to sending a PR.
+
+In order to run the testing environment, create a virtual environment, install
+tox, and run the tox commands:
+
+.. code:: bash
+
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements-tox.txt
+    # You may have to deactivate and reactivate to have access to the tox command,
+    # depending on your system.
+
+    # Run the test suite with the versions of python you have installed
+    tox -e py27,py34
+    # Alternatively, if you're using something like pyenv and can easily install
+    # Multiple versions of python, then try running the following command
+    tox
+
+Check out pyenv_ if you'd like a simple way of
+installing multiple python versions to test out.
+.. _pyenv: https://github.com/pyenv/pyenv
 
 Packaging for PyPi:
 ~~~~~~~~~~~~~~~~~~~
