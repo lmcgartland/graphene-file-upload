@@ -23,7 +23,9 @@ flask_requires = [
 
 django_requires = []
 tests_require = flask_requires + django_requires + [
+    'coverage>=4.5.1',
     'pytest>=3.7.4',
+    'pytest-cov>=2.6.0',
 ]
 
 setup(
