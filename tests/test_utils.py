@@ -41,10 +41,10 @@ CASE_PARAMS = (
     ),
     # Handle batch operations
     Parameter(
-		operations=[
-			{'query': 'q1', 'variables': {'file': None}},
-			{'query': 'q2', 'variables': {'files': [None, None]}},
-		],
+        operations=[
+            {'query': 'q1', 'variables': {'file': None}},
+            {'query': 'q2', 'variables': {'files': [None, None]}},
+        ],
         files_map={
             'tf1': ['0.variables.file', '1.variables.files.0'],
             'tf2': ['1.variables.files.1'],
@@ -53,10 +53,10 @@ CASE_PARAMS = (
             'tf1': FFake('f1'),
             'tf2': FFake('f2'),
         },
-		expected=[
-			{'query': 'q1', 'variables': {'file': FFake('f1')}},
-			{'query': 'q2', 'variables': {'files': [FFake('f1'), FFake('f2')]}},
-		],
+        expected=[
+            {'query': 'q1', 'variables': {'file': FFake('f1')}},
+            {'query': 'q2', 'variables': {'files': [FFake('f1'), FFake('f2')]}},
+        ],
     ),
 )
 
