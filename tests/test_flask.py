@@ -1,6 +1,5 @@
 import json
 from tempfile import NamedTemporaryFile
-import six
 
 import pytest
 
@@ -10,8 +9,10 @@ from graphene_file_upload.flask import FileUploadGraphQLView
 
 from .flask_app import create_app
 
+
 class Query(graphene.ObjectType):
     ok = graphene.Boolean(default_value=True)
+
 
 class MyUpload(graphene.Mutation):
     class Arguments:
@@ -25,13 +26,17 @@ class MyUpload(graphene.Mutation):
         file_in.seek(0)
         return MyUpload(ok=True, first_line=first_line)
 
+
 class Mutation(graphene.ObjectType):
     my_upload = MyUpload.Field()
 
+
 schema = graphene.Schema(query=Query, mutation=Mutation)
+
 
 def response_utf8_json(resp):
     return json.loads(resp.data.decode())
+
 
 @pytest.fixture
 def client():
@@ -85,4 +90,3 @@ def test_single_file(client, file_text, expected_first_line):
             },
         }
     }
-

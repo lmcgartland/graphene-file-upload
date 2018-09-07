@@ -3,8 +3,8 @@ from graphene_file_upload.flask import FileUploadGraphQLView
 
 from graphql import GraphQLCachedBackend
 
-def create_app(schema, path='/graphql'):
 
+def create_app(schema, path='/graphql'):
     app = Flask(__name__)
     app.debug = True
     app.add_url_rule(

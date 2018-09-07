@@ -1,7 +1,9 @@
 from collections import namedtuple
-from graphene_file_upload.utils import place_files_in_operations
 
 import pytest
+
+from graphene_file_upload.utils import place_files_in_operations
+
 
 class FFake(object):
     '''Fake File object that is placed in operations'''
@@ -13,6 +15,7 @@ class FFake(object):
 
     def __eq__(self, other):
         return isinstance(other, FFake) and self.value == other.value
+
 
 Parameter = namedtuple('TestParameter', (
     'operations',
@@ -59,6 +62,7 @@ CASE_PARAMS = (
         ],
     ),
 )
+
 
 @pytest.mark.parametrize(
     'operations,files_map,file_name_map,expected',
