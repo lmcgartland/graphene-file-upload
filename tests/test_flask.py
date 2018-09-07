@@ -50,7 +50,7 @@ def client():
     (
         (None, u'Fake Data\nLine2\n', u'Fake Data'),
         # Try the fire emoji
-        (None, u'\uE11D\nLine2\nLine3\n', u'\uE11D'),
+        (None, u'\U0001F525\nLine2\nLine3\n', u'\U0001F525'),
     ),
     indirect=['client']
 )
