@@ -1,7 +1,9 @@
+from six import iteritems
+
 def place_files_in_operations(operations, files_map, files):
     path_to_key_iter = (
         (value.split('.'), key)
-        for key, values in files_map.items()
+        for (key, values) in iteritems(files_map)
         for value in values
     )
     # Since add_files_to_operations returns a new dict/list, first define
