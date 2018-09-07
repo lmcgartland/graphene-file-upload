@@ -92,6 +92,11 @@ tox, and run the tox commands:
     # Multiple versions of python, then try running the following command
     tox
 
+    # If for some reason you need to recreate the tox environment (e.g. a new
+    # dependency has been added since you last ran it, add the -r flag to the
+    # tox command)
+    tox -r {...additional flags...}
+
 Check out `pyenv
 <https://github.com/pyenv/pyenv>`_ if you'd like a simple way of
 installing multiple python versions to test out.
