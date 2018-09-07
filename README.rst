@@ -92,7 +92,7 @@ tox, and run the tox commands:
     # Multiple versions of python, then try running the following command
     tox
 
-Check out `pyenv_
+Check out `pyenv
 <https://github.com/pyenv/pyenv>`_ if you'd like a simple way of
 installing multiple python versions to test out.
 
