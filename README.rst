@@ -93,7 +93,7 @@ tox, and run the tox commands:
     tox
 
 Check out `pyenv_
-<https://github.com/pyenv/pyenv` if you'd like a simple way of
+<https://github.com/pyenv/pyenv>` if you'd like a simple way of
 installing multiple python versions to test out.
 
 Packaging for PyPi:
