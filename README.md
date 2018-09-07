@@ -6,7 +6,7 @@
 Graphene for Django, and for Flask-Graphql. It supports multi-part file uploads
 that adhere to the [Multipart Request Spec](https://github.com/jaydenseric/graphql-multipart-request-spec).
 
-It currently supports Python 3.4+.
+It currently supports Python 2.7 and 3.4+.
 
 ## Installation:
 
