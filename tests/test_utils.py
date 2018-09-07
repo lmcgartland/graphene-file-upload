@@ -21,8 +21,25 @@ Parameter = namedtuple('TestParameter', (
     'expected',
 ))
 
-
-@pytest.mark.parametrize('operations,files_map,file_name_map,expected', (
+CASE_PARAMS = (
+    # Handle simple operations
+    Parameter(
+        operations={
+            'query': 'q',
+            'variables': {'f': None},
+        },
+        files_map={
+            'thiz_file': ['variables.f']
+        },
+        file_name_map={
+            'thiz_file': FFake('thiz')
+        },
+        expected={
+            'query': 'q',
+            'variables': {'f': FFake('thiz')},
+        }
+    ),
+    # Handle batch operations
     Parameter(
 		operations=[
 			{'query': 'q1', 'variables': {'file': None}},
@@ -41,7 +58,12 @@ Parameter = namedtuple('TestParameter', (
 			{'query': 'q2', 'variables': {'files': [FFake('f1'), FFake('f2')]}},
 		],
     ),
-))
+)
+
+@pytest.mark.parametrize(
+    'operations,files_map,file_name_map,expected',
+    CASE_PARAMS
+)
 def test_place_files_in_operations(
     operations,
     files_map,
@@ -50,5 +72,3 @@ def test_place_files_in_operations(
 ):
     actual = place_files_in_operations(operations, files_map, file_name_map)
     assert actual == expected
-
-

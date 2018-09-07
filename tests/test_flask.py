@@ -1,5 +1,6 @@
 import json
 from tempfile import NamedTemporaryFile
+import six
 
 import pytest
 
@@ -20,7 +21,7 @@ class MyUpload(graphene.Mutation):
     first_line = graphene.String()
 
     def mutate(self, info, file_in):
-        first_line = file_in.readline().strip().decode()
+        first_line = file_in.readline().strip().decode('utf-8')
         file_in.seek(0)
         return MyUpload(ok=True, first_line=first_line)
 
@@ -38,7 +39,17 @@ def client():
     client = app.test_client()
     yield client
 
-def test_single_file(client):
+
+@pytest.mark.parametrize(
+    'client,file_text,expected_first_line',
+    (
+        (None, u'Fake Data\nLine2\n', u'Fake Data'),
+        # Try the fire emoji
+        (None, u'\uE11D\nLine2\nLine3\n', u'\uE11D'),
+    ),
+    indirect=['client']
+)
+def test_single_file(client, file_text, expected_first_line):
     query = '''
         mutation testMutation($file: Upload!) {
             myUpload(fileIn: $file) {
@@ -48,7 +59,7 @@ def test_single_file(client):
         }
     '''
     with NamedTemporaryFile() as t_file:
-        t_file.write(b'Fake Data\nLine2\n')
+        t_file.write(file_text.encode('utf-8'))
         t_file.seek(0)
         response = client.post(
             '/graphql',
@@ -70,7 +81,8 @@ def test_single_file(client):
         'data': {
             'myUpload': {
                 'ok': True,
-                'firstLine': 'Fake Data',
+                'firstLine': expected_first_line,
             },
         }
     }
+
