@@ -102,3 +102,6 @@ ENV/
 
 # IDE
 .idea/
+
+# py.test
+.pytest_cache/
