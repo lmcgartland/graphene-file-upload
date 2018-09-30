@@ -103,10 +103,6 @@ ENV/
 # IDE
 .idea/
 
-<<<<<<< HEAD
+
 #pytest
 .pytest_cache
-=======
-# py.test
-.pytest_cache/
->>>>>>> b281502b87963207149eee175497f9fa85b848d7
