@@ -28,7 +28,7 @@ def add_file_to_operations(operations, file_obj, path):
         index = int(path[0])
         sub_item = add_file_to_operations(operations[index], file_obj, path[1:])
         return new_list_with_replaced_item(operations, index, sub_item)
-    return TypeError('Operations must be a JSON data structure')
+    raise TypeError('Operations must be a dict or a list of dicts')
 
 
 def new_merged_dict(*dicts):
