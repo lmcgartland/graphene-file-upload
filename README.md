@@ -79,14 +79,15 @@ pip install -r requirements-tox.txt
 # depending on your system.
 
 # Run the test suite with the versions of python you have installed
-tox -e py27,py34
+tox -e py27,py34 --develop
 # Alternatively, if you're using something like pyenv and can easily install
 # Multiple versions of python, then try running the following command
-tox
+tox --develop
 
 # If for some reason you need to recreate the tox environment (e.g. a new
-# dependency has been added since you last ran it, add the -r flag to the
-# tox command)
+# dependency has been added since you last ran it, you run `tox` without the
+# `--develop` flag), add the -r flag to the tox command
+
 tox -r {...additional flags...}
 ```
 
