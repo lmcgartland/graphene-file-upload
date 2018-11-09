@@ -35,7 +35,7 @@ setup(
         'graphene_file_upload.flask',
         'graphene_file_upload.django',
     ],
-    version='1.1.0',
+    version='1.2.0',
     description='Lib for adding file upload functionality to GraphQL mutations in Graphene Django and Flask-Graphql',
     long_description=long_description,
     long_description_content_type='text/x-rst',
