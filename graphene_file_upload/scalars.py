@@ -1,6 +1,14 @@
+"""Scalars
+
+Defines upload scalar for use in defining file-specific interfaces
+"""
 import graphene
 
+
 class Upload(graphene.types.Scalar):
+    """Create scalar that ignores normal serialization/deserialization, since
+    that will be handled by the multipart request spec"""
+
     @staticmethod
     def serialize(value):
         return value

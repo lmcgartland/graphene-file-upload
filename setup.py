@@ -21,12 +21,10 @@ flask_requires = [
     'Flask-Graphql>=2.0.0',
 ]
 
-django_requires = []
-tests_require = flask_requires + django_requires + [
-    'coverage>=4.5.1',
-    'pytest>=3.7.4',
-    'pytest-cov>=2.6.0',
+django_requires = [
+    'graphene-django>=2.0.0',
 ]
+all_requires = flask_requires + django_requires
 
 setup(
     name='graphene_file_upload',
@@ -44,10 +42,9 @@ setup(
     install_requires=[
         'six>=1.11.0',
     ],
-    tests_require=tests_require,
     extras_require={
-        'test': tests_require,
         'flask': flask_requires,
         'django': django_requires,
+        'all': all_requires,
     },
 )
