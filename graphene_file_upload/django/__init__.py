@@ -1,8 +1,16 @@
 """Apply multipart request spec to django"""
 import json
+from django.forms import FileField
 from graphene_django.views import GraphQLView
+from graphene_django.forms.converter import convert_form_field
 
 from ..utils import place_files_in_operations
+from ..scalars import Upload
+
+
+@convert_form_field.register(FileField)
+def convert_form_field_to_upload(field):
+    return Upload(description=field.help_text, required=field.required)
 
 
 class FileUploadGraphQLView(GraphQLView):
