@@ -28,7 +28,7 @@ all_requires = flask_requires + django_requires
 
 setup(
     name='graphene_file_upload',
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests"]),
     version='1.2.2',
     description='Lib for adding file upload functionality to GraphQL mutations in Graphene Django and Flask-Graphql',
     long_description=long_description,
