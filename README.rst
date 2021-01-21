@@ -10,7 +10,7 @@ graphene-file-upload
 
 ``graphene-file-upload`` is a drop in replacement for the the GraphQL
 view in Graphene for Django, and for Flask-Graphql. It supports
-multi-part file uploads that adhere to the `Multipart Request Spec`_.
+multi-part file uploads that adhere to the `Multipart Request Spec <https://github.com/jaydenseric/graphql-multipart-request-spec>`_.
 
 It currently supports Python 2.7 and 3.4+.
 

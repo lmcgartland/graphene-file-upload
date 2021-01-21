@@ -24,3 +24,8 @@ deploy:  ## Release project to PyPI.
 	@pip freeze | grep -q -i 'twine' || $(PYTHON_PIP) install -U twine
 	@$(PYTHON) setup.py sdist bdist_wheel
 	@twine upload -r pypi dist/*
+
+deploy-test:  ## Release project to PyPI test
+	@pip freeze | grep -q -i 'twine' || $(PYTHON_PIP) install -U twine
+	@$(PYTHON) setup.py sdist bdist_wheel
+	@twine upload -r testpypi dist/*

@@ -63,12 +63,7 @@ setup(
         "Framework :: Django :: 2.2",
         "Framework :: Django :: 3.0",
         "Framework :: Django :: 3.1",
-        "Framework :: Flask :: 1.0.2",
-        "Framework :: Flask :: 1.0.3",
-        "Framework :: Flask :: 1.0.4",
-        "Framework :: Flask :: 1.1.0",
-        "Framework :: Flask :: 1.1.1",
-        "Framework :: Flask :: 1.1.2",
+        "Framework :: Flask"
     ],
     extras_require={
         'flask': flask_requires,
