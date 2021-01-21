@@ -15,12 +15,12 @@ install:  ## Install development extra dependencies.
 	@echo "Installing development requirements..."
 	@$(PYTHON_PIP) install -e .'[all]' -r requirements-tox.txt
 
-test:
+test:  ## Run tox test.
 	@echo "Running tox..."
 	@pip freeze | grep -q -i 'tox' || $(PYTHON_PIP) install -r requirements-tox.txt
 	@tox
 
-deploy:  ## Release project to PyPi
+deploy:  ## Release project to PyPI.
 	@pip freeze | grep -q -i 'twine' || $(PYTHON_PIP) install -U twine
 	@$(PYTHON) setup.py sdist bdist_wheel
 	@twine upload -r pypi dist/*
