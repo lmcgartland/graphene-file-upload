@@ -19,3 +19,8 @@ test:
 	@echo "Running tox..."
 	@pip freeze | grep -q -i 'tox' || $(PYTHON_PIP) install -r requirements-tox.txt
 	@tox
+
+deploy:  ## Release project to PyPi
+	@pip freeze | grep -q -i 'twine' || $(PYTHON_PIP) install -U twine
+	@$(PYTHON) setup.py sdist bdist_wheel
+	@twine upload -r pypi dist/*
