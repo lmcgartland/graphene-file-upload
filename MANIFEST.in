@@ -1,2 +1,3 @@
 # Include the README
 include *.md
+recursive-exclude tests *
