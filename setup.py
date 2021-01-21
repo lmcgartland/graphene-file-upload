@@ -35,9 +35,9 @@ setup(
     long_description_content_type='text/x-rst',
     author='Lucas McGartland',
     author_email='lucasmcgartland@gmail.com',
-    url='https://github.com/lmcgartland/graphene-file-upload', # use the URL to the github repo
+    url='https://github.com/lmcgartland/graphene-file-upload',  # use the URL to the github repo
     # download_url = 'https://github.com/lmcgartland/graphene-file-upload/archive/0.1.0.tar.gz',
-    keywords=['graphql', 'graphene', 'apollo',  'upload'], # arbitrary keywords
+    keywords=['graphql', 'graphene', 'apollo',  'upload'],  # arbitrary keywords
     install_requires=[
         'six>=1.11.0',
     ],
