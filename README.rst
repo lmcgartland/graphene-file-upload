@@ -1,5 +1,9 @@
+.. image:: https://travis-ci.com/lmcgartland/graphene-file-upload.svg?branch=master
+    :target: https://travis-ci.com/lmcgartland/graphene-file-upload
+
 .. image:: https://badge.fury.io/py/graphene-file-upload.svg
     :target: https://badge.fury.io/py/graphene-file-upload
+
 
 graphene-file-upload
 ====================
@@ -13,7 +17,9 @@ It currently supports Python 2.7 and 3.4+.
 Installation:
 -------------
 
-``pip install graphene-file-upload``
+.. code:: bash
+
+    $ pip install graphene-file-upload
 
 Usage
 -----
@@ -80,22 +86,22 @@ tox, and run the tox commands:
 
 .. code:: bash
 
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install -r requirements-tox.txt
+    $ python3 -m venv venv
+    $ source venv/bin/activate
+    $ make install
     # You may have to deactivate and reactivate to have access to the tox command,
     # depending on your system.
 
     # Run the test suite with the versions of python you have installed
-    tox -e py27,py34
+    $ tox
     # Alternatively, if you're using something like pyenv and can easily install
     # Multiple versions of python, then try running the following command
-    tox
+    $ tox
 
     # If for some reason you need to recreate the tox environment (e.g. a new
     # dependency has been added since you last ran it, add the -r flag to the
     # tox command)
-    tox -r {...additional flags...}
+    $ tox -r {...additional flags...}
 
 Check out `pyenv
 <https://github.com/pyenv/pyenv>`_ if you'd like a simple way of
@@ -104,16 +110,6 @@ installing multiple python versions to test out.
 Packaging for PyPi:
 ~~~~~~~~~~~~~~~~~~~
 
-Build the distribution.
+.. code:: bash
 
-``python3 setup.py sdist bdist_wheel``
-
-Upload to PyPi test servers.
-
-``twine upload --repository-url https://test.pypi.org/legacy/ dist/*``
-
-Upload to PyPi production servers.
-
-``twine upload dist/*``
-
-.. _Multipart Request Spec: https://github.com/jaydenseric/graphql-multipart-request-spec
+    $ make deploy

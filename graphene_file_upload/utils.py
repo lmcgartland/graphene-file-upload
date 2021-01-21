@@ -58,6 +58,6 @@ def new_merged_dict(*dicts):
 
 def new_list_with_replaced_item(input_list, index, new_value):
     """Creates new list with replaced item at specified index"""
-    output = [i for i in input_list]
+    output = input_list
     output[index] = new_value
     return output
