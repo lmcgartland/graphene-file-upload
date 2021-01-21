@@ -1,5 +1,9 @@
+.. image:: https://travis-ci.com/lmcgartland/graphene-file-upload.svg?branch=master
+    :target: https://travis-ci.com/lmcgartland/graphene-file-upload
+
 .. image:: https://badge.fury.io/py/graphene-file-upload.svg
     :target: https://badge.fury.io/py/graphene-file-upload
+
 
 graphene-file-upload
 ====================
