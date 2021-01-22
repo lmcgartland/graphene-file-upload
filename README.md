@@ -72,23 +72,22 @@ In order to run the testing environment, create a virtual environment, install
 tox, and run the tox commands:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements-tox.txt
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ make install
 # You may have to deactivate and reactivate to have access to the tox command,
 # depending on your system.
 
 # Run the test suite with the versions of python you have installed
-tox -e py27,py34 --develop
+$ tox
 # Alternatively, if you're using something like pyenv and can easily install
 # Multiple versions of python, then try running the following command
-tox --develop
+$ tox
 
 # If for some reason you need to recreate the tox environment (e.g. a new
-# dependency has been added since you last ran it, you run `tox` without the
-# `--develop` flag), add the -r flag to the tox command
+# dependency has been added since you last ran it, add the -r flag to the tox command)
 
-tox -r {...additional flags...}
+$ tox -r {...additional flags...}
 ```
 
 Check out [pyenv](https://github.com/pyenv/pyenv) if you'd like a simple way of
@@ -96,14 +95,6 @@ installing multiple python versions to test out.
 
 ### Packaging for PyPi:
 
-Build the distribution.
-
-`python3 setup.py sdist bdist_wheel`
-
-Upload to PyPi test servers.
-
-`twine upload --repository-url https://test.pypi.org/legacy/ dist/*`
-
-Upload to PyPi production servers.
-
-`twine upload dist/*`
+```bash
+$ make deploy
+```

@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- `tests` folder is included in packages [\#41](https://github.com/lmcgartland/graphene-file-upload/issues/41)
 - Is this project still alive ? [\#40](https://github.com/lmcgartland/graphene-file-upload/issues/40)
 - No need for redundant dependencies [\#39](https://github.com/lmcgartland/graphene-file-upload/issues/39)
 - Testing file upload API [\#38](https://github.com/lmcgartland/graphene-file-upload/issues/38)
@@ -19,6 +20,8 @@
 
 **Merged pull requests:**
 
+- Fixed test and updated classifiers [\#47](https://github.com/lmcgartland/graphene-file-upload/pull/47) ([jackton1](https://github.com/jackton1))
+- Use graphene\_django if `operations` not in request POST [\#45](https://github.com/lmcgartland/graphene-file-upload/pull/45) ([lucas-bremond](https://github.com/lucas-bremond))
 - Exclude 'tests' from the package list [\#43](https://github.com/lmcgartland/graphene-file-upload/pull/43) ([fhennig](https://github.com/fhennig))
 - Lint files and resolve django issue [\#27](https://github.com/lmcgartland/graphene-file-upload/pull/27) ([davidroeca](https://github.com/davidroeca))
 
