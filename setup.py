@@ -26,6 +26,13 @@ django_requires = [
 ]
 all_requires = flask_requires + django_requires
 
+tests_require = [
+    'coverage',
+    'pytest',
+    'pytest-cov',
+    'pytest-django'
+]
+
 setup(
     name='graphene_file_upload',
     packages=find_packages(exclude=["tests"]),
@@ -41,6 +48,7 @@ setup(
     install_requires=[
         'six>=1.11.0',
     ],
+    tests_require=tests_require,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -63,16 +71,12 @@ setup(
         "Framework :: Django :: 2.2",
         "Framework :: Django :: 3.0",
         "Framework :: Django :: 3.1",
-        "Framework :: Flask :: 1.0.2",
-        "Framework :: Flask :: 1.0.3",
-        "Framework :: Flask :: 1.0.4",
-        "Framework :: Flask :: 1.1.0",
-        "Framework :: Flask :: 1.1.1",
-        "Framework :: Flask :: 1.1.2",
+        "Framework :: Flask"
     ],
     extras_require={
         'flask': flask_requires,
         'django': django_requires,
         'all': all_requires,
+        'tests': tests_require,
     },
 )
