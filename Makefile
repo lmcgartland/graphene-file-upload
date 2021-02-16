@@ -13,7 +13,7 @@ help:
 
 install:  ## Install development extra dependencies.
 	@echo "Installing development requirements..."
-	@$(PYTHON_PIP) install -e .'[all]' -r requirements-tox.txt
+	@$(PYTHON_PIP) install -e .'[all,tests]' -r requirements-tox.txt
 
 test:  ## Run tox test.
 	@echo "Running tox..."

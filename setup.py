@@ -26,6 +26,13 @@ django_requires = [
 ]
 all_requires = flask_requires + django_requires
 
+tests_require = [
+    'coverage',
+    'pytest',
+    'pytest-cov',
+    'pytest-django'
+]
+
 setup(
     name='graphene_file_upload',
     packages=find_packages(exclude=["tests"]),
@@ -35,12 +42,13 @@ setup(
     long_description_content_type='text/x-rst',
     author='Lucas McGartland',
     author_email='lucasmcgartland@gmail.com',
-    url='https://github.com/lmcgartland/graphene-file-upload', # use the URL to the github repo
+    url='https://github.com/lmcgartland/graphene-file-upload',  # use the URL to the github repo
     # download_url = 'https://github.com/lmcgartland/graphene-file-upload/archive/0.1.0.tar.gz',
-    keywords=['graphql', 'graphene', 'apollo',  'upload'], # arbitrary keywords
+    keywords=['graphql', 'graphene', 'apollo',  'upload'],  # arbitrary keywords
     install_requires=[
         'six>=1.11.0',
     ],
+    tests_require=tests_require,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -69,5 +77,6 @@ setup(
         'flask': flask_requires,
         'django': django_requires,
         'all': all_requires,
+        'tests': tests_require,
     },
 )
