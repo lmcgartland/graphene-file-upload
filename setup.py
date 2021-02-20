@@ -36,7 +36,7 @@ tests_require = [
 setup(
     name='graphene_file_upload',
     packages=find_packages(exclude=["tests"]),
-    version='1.2.2',
+    version='1.3.0',
     description='Lib for adding file upload functionality to GraphQL mutations in Graphene Django and Flask-Graphql',
     long_description=long_description,
     long_description_content_type='text/x-rst',
