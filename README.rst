@@ -4,6 +4,16 @@
 .. image:: https://badge.fury.io/py/graphene-file-upload.svg
     :target: https://badge.fury.io/py/graphene-file-upload
 
+.. image:: https://img.shields.io/pypi/dm/graphene-file-upload
+   :alt: PyPI - Downloads
+
+.. image:: https://img.shields.io/pypi/pyversions/graphene-file-upload
+   :alt: PyPI - Python Version
+
+.. image:: https://img.shields.io/pypi/djversions/graphene-file-upload
+   :alt: PyPI - Django Version
+
+.. image:: https://img.shields.io/badge/flask%20-%23000.svg?&style=flat&logo=flask&logoColor=white
 
 graphene-file-upload
 ====================
