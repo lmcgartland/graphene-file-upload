@@ -33,7 +33,7 @@ def file_graphql_query(
     """
 
     if not files:
-        raise ValueError('Missing required argument "files": Use `self.query` instead.')
+        raise ValueError('Missing required argument "files".')
 
     client = client or Client()
     headers = headers or {}
