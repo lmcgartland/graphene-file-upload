@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/lmcgartland/graphene-file-upload.svg?branch=master)](https://travis-ci.com/lmcgartland/graphene-file-upload) [![PyPI version](https://badge.fury.io/py/graphene-file-upload.svg)](https://badge.fury.io/py/graphene-file-upload) ![PyPI - Downloads](https://img.shields.io/pypi/dm/graphene-file-upload)
+[![Build Status](https://travis-ci.com/lmcgartland/graphene-file-upload.svg?branch=master)](https://travis-ci.com/lmcgartland/graphene-file-upload) [![PyPI version](https://badge.fury.io/py/graphene-file-upload.svg)](https://badge.fury.io/py/graphene-file-upload) [![Downloads](https://pepy.tech/badge/graphene-file-upload/month)](https://pepy.tech/project/graphene-file-upload)
  
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/graphene-file-upload) ![PyPI - Django Version](https://img.shields.io/pypi/djversions/graphene-file-upload) ![Flask](https://img.shields.io/badge/flask%20-%23000.svg?&style=flat&logo=flask&logoColor=white)
 
