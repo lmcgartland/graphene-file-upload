@@ -12,6 +12,7 @@
 
 .. image:: https://img.shields.io/pypi/djversions/graphene-file-upload
    :alt: PyPI - Django Version
+
 .. image:: https://img.shields.io/badge/flask%20-%23000.svg?&style=flat&logo=flask&logoColor=white
 
 graphene-file-upload
