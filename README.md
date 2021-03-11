@@ -12,7 +12,11 @@ It currently supports Python 2.7 and 3.4+.
 
 ## Installation:
 
-`pip install graphene-file-upload`
+```shell script
+
+pip install graphene-file-upload
+
+```
 
 ## Usage
 
