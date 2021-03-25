@@ -1,11 +1,11 @@
 .. image:: https://travis-ci.com/lmcgartland/graphene-file-upload.svg?branch=master
-    :target: https://travis-ci.com/lmcgartland/graphene-file-upload
+   :target: https://travis-ci.com/lmcgartland/graphene-file-upload 
 
 .. image:: https://badge.fury.io/py/graphene-file-upload.svg
-    :target: https://badge.fury.io/py/graphene-file-upload
+   :target: https://badge.fury.io/py/graphene-file-upload
 
-.. image:: https://img.shields.io/pypi/dm/graphene-file-upload
-   :alt: PyPI - Downloads
+.. image:: https://static.pepy.tech/personalized-badge/graphene-file-upload?period=month&units=international_system&left_color=grey&right_color=blue&left_text=downloads/month
+ :target: https://pepy.tech/project/graphene-file-upload
 
 .. image:: https://img.shields.io/pypi/pyversions/graphene-file-upload
    :alt: PyPI - Python Version
