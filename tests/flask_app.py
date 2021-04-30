@@ -1,6 +1,7 @@
 from flask import Flask
 
 from graphene_file_upload.flask import FileUploadGraphQLView
+from .schema import schema
 
 
 def create_app(schema, path='/graphql'):
@@ -10,7 +11,7 @@ def create_app(schema, path='/graphql'):
         path,
         view_func=FileUploadGraphQLView.as_view(
             'graphql',
-            schema=schema,
+            schema=schema.graphql_schema,
         ),
     )
     return app
