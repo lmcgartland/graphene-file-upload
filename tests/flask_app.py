@@ -1,8 +1,6 @@
 from flask import Flask
 
 from graphene_file_upload.flask import FileUploadGraphQLView
-from .schema import schema
-
 
 def create_app(schema, path='/graphql'):
     app = Flask(__name__)
