@@ -9,7 +9,7 @@ matrix:
       env: TOXENV=py38
     - python: 3.9
       env: TOXENV=py39
-    - python: pypy
+    - python: pypy3
       env: TOXENV=pypy
 install:
   - pip install tox
