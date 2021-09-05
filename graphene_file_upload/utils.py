@@ -19,8 +19,9 @@ def place_files_in_operations(operations, files_map, files):
     # output to be operations itself
     output = operations
     for path, key in path_to_key_iter:
-        file_obj = files[key]
-        output = add_file_to_operations(output, file_obj, path)
+        file_obj = files.get(key, None)
+        if file_obj:
+            output = add_file_to_operations(output, file_obj, path)
     return output
 
 
