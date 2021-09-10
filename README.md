@@ -142,6 +142,7 @@ To use pytest define a simple fixture using the query helper below
 import json
 import pytest
 from graphene_file_upload.django.testing import file_graphql_query
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 @pytest.fixture
 def client_query(client):
@@ -151,8 +152,9 @@ def client_query(client):
     return func
 
 # Test your query using the client_query fixture
+
 def test_some_query(client_query):
-    test_file = SimpleUploadedFile(name='test.txt', content=file_text.encode('utf-8'))
+    test_file = SimpleUploadedFile(name='test.txt', content=b'')
     
     response = client_query(
         '''
@@ -178,10 +180,11 @@ Your endpoint is set through the `GRAPHQL_URL` attribute on `GraphQLFileUploadTe
 import json
 
 from graphene_file_upload.django.testing import GraphQLFileUploadTestCase
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 class MutationTestCase(GraphQLFileUploadTestCase):
    def test_some_mutation(self):
-        test_file = SimpleUploadedFile(name='test.txt', content=file_text.encode('utf-8'))
+        test_file = SimpleUploadedFile(name='test.txt', content=b'')
 
         response = self.file_query(
             '''
@@ -198,6 +201,9 @@ class MutationTestCase(GraphQLFileUploadTestCase):
         # This validates the status code and if you get errors
         self.assertResponseNoErrors(response)
 ```
+
+**Note**: Remember that `GraphQLFileUploadTestCase` uses a default GraphQL endpoint of '/graphql/'. Pass a different url as a kwarg into self.file_query(...) if
+your GraphQl endpoint is different.
 
 ### Contributing:
 
