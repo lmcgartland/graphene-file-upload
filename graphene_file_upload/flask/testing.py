@@ -1,5 +1,4 @@
-"""Use django's Test client to run file based graphql test."""
-from django.test import Client, TestCase
+"""Use flask's Test client to run file based graphql test."""
 from .. import testingbase
 
 DEFAULT_GRAPHQL_URL = "/graphql/"
@@ -12,9 +11,9 @@ def create_client_post(client):
     def client_post(graphql_url, data, files, headers=None):
         data.update(files)
         if headers:
-            response = client.post(graphql_url, data, headers=headers)
+            response = client.post(graphql_url, data=data, headers=headers)
         else:
-            response = client.post(graphql_url, data)
+            response = client.post(graphql_url, data=data)
         return response
     return client_post
 
@@ -38,16 +37,10 @@ def file_graphql_query(
     :param dict headers: If provided, the headers in POST request to GRAPHQL_URL
         will be set to this value. Defaults to None
     :param dict files: Files to be sent via request.FILES. Defaults to None.
-    :param django.test.Client client: Test client. Defaults to django.test.Client.
+    :param  flask.testing.FlaskClient: Test client. Defaults to None.
     :param str graphql_url: URL to graphql endpoint. Defaults to "/graphql"
     :return: Response object from client
     """
-    client = client or Client()
     client_post = create_client_post(client)
     return testingbase.file_graphql_query(
         query, op_name, input_data, variables, headers, files, client_post, graphql_url)
-
-
-class GraphQLFileUploadTestCase(testingbase.GraphQLFileUploadTestMixin, TestCase):
-    def setUp(self) -> None:
-        self.client_post = create_client_post(self.client)
