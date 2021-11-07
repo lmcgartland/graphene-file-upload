@@ -104,7 +104,7 @@ Flask
 
     from flaskr import flaskr
     import pytest
-    from graphene_file_upload.django.testing import file_graphql_query
+    from graphene_file_upload.flask.testing import file_graphql_query
 
 
     @pytest.fixture
