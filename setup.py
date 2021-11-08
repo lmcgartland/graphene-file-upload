@@ -17,12 +17,12 @@ long_description = open('README.rst').read()
 
 flask_requires = [
     'Flask>=1.0.2',
-    'graphene>=2.1.2',
-    'Flask-Graphql>=2.0.0',
+    'graphene>=3.0b7',
+    'graphql-server[flask]>=3.0.0b3',
 ]
 
 django_requires = [
-    'graphene-django>=2.0.0',
+    'graphene-django>=3.0.0b6',
 ]
 all_requires = flask_requires + django_requires
 
@@ -56,9 +56,6 @@ setup(
         "Natural Language :: English",
         "Topic :: Internet :: WWW/HTTP",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

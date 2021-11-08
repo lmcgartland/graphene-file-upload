@@ -53,10 +53,6 @@ urlpatterns = [
 
 ### Flask Integration:
 
-Note that `flask-graphql` version `<2.0` is not supported. At the time of
-writing this README, you must install `flask-graphql` with
-`pip install --pre flask-graphql`
-
 Simply import the modified view and create a new url rule on your app:
 
 ```python
