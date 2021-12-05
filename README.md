@@ -13,9 +13,7 @@ It currently supports Python 2.7 and 3.4+.
 ## Installation:
 
 ```shell script
-
 pip install graphene-file-upload
-
 ```
 
 ## Usage
@@ -24,6 +22,7 @@ To add an upload type to your mutation, import and use `Upload`.
 Upload is a scalar type.
 
 ```python
+import graphene
 from graphene_file_upload.scalars import Upload
 
 class UploadMutation(graphene.Mutation):
@@ -44,10 +43,11 @@ To use, import the view, then add to your list of urls (replace previous
 GraphQL view).
 
 ```python
+from django.urls import path
 from graphene_file_upload.django import FileUploadGraphQLView
 
 urlpatterns = [
-  url(r'^graphql', FileUploadGraphQLView.as_view(graphiql=True)),
+  path(r'^graphql', FileUploadGraphQLView.as_view(graphiql=True)),
 ]
 ```
 
@@ -60,8 +60,11 @@ writing this README, you must install `flask-graphql` with
 Simply import the modified view and create a new url rule on your app:
 
 ```python
+from flask import Flask
 from graphene_file_upload.flask import FileUploadGraphQLView
 
+app = Flask(__name__)
+app.debug = True
 app.add_url_rule(
     '/graphql',
     view_func=FileUploadGraphQLView.as_view(
@@ -76,7 +79,7 @@ app.add_url_rule(
 
 https://flask.palletsprojects.com/en/1.1.x/testing/#the-testing-skeleton
 
-```py 
+```python
 # Create a fixture using the file_graphql_query helper and `client` fixture.
 import os
 import json
@@ -84,7 +87,7 @@ import tempfile
 
 from flaskr import flaskr
 import pytest
-from graphene_file_upload.flask.testing import file_graphql_query
+from graphene_file_upload.testing import file_graphql_query
 
 
 @pytest.fixture
@@ -110,22 +113,27 @@ def client_query(client):
 
 # Test your query using the client_query fixture
 def test_some_query(client_query):
-    test_file = SimpleUploadedFile(name='test.txt', content=file_text.encode('utf-8'))
+    with tempfile.NamedTemporaryFile() as test_file:
+        test_file.write(b"test")
+        test_file.seek(0)
     
-    response = client_query(
-        '''
-        mutation testMutation($file: Upload!) {
-            myUpload(fileIn: $file) {
-                ok
+        query = '''
+            mutation testMutation($file: Upload!) {
+                myUpload(fileIn: $file) {
+                    ok
+                }
             }
-        }
-        ''',
-        op_name='testMutation'
-        files={'file': test_file},
-    )
-
-    content = json.loads(response.content)
-    assert 'errors' not in content
+        '''
+        
+        response = file_graphql_query(
+            query,
+            op_name='testMutation',
+            files={'file': test_file},
+            client=client,
+        )
+    
+        content = json.loads(response.content)
+        assert 'errors' not in content
 ```
 
 ### Django
@@ -141,7 +149,9 @@ To use pytest define a simple fixture using the query helper below
 
 import json
 import pytest
-from graphene_file_upload.django.testing import file_graphql_query
+
+from django.core.files.uploadedfile import SimpleUploadedFile
+from graphene_file_upload.testing import file_graphql_query
 
 @pytest.fixture
 def client_query(client):
@@ -152,7 +162,7 @@ def client_query(client):
 
 # Test your query using the client_query fixture
 def test_some_query(client_query):
-    test_file = SimpleUploadedFile(name='test.txt', content=file_text.encode('utf-8'))
+    test_file = SimpleUploadedFile(name='test.txt', content=b"test")
     
     response = client_query(
         '''
@@ -162,7 +172,7 @@ def test_some_query(client_query):
             }
         }
         ''',
-        op_name='testMutation'
+        op_name='testMutation',
         files={'file': test_file},
     )
 
@@ -175,13 +185,12 @@ def test_some_query(client_query):
 Your endpoint is set through the `GRAPHQL_URL` attribute on `GraphQLFileUploadTestCase`. The default endpoint is `GRAPHQL_URL = “/graphql/”`.
 
 ```py
-import json
-
+from django.core.files.uploadedfile import SimpleUploadedFile
 from graphene_file_upload.django.testing import GraphQLFileUploadTestCase
 
 class MutationTestCase(GraphQLFileUploadTestCase):
    def test_some_mutation(self):
-        test_file = SimpleUploadedFile(name='test.txt', content=file_text.encode('utf-8'))
+        test_file = SimpleUploadedFile(name='test.txt', content=b"test")
 
         response = self.file_query(
             '''
