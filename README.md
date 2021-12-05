@@ -49,7 +49,7 @@ from graphene_file_upload.django import FileUploadGraphQLView
 
 
 urlpatterns = [
-  path(r'^graphql', FileUploadGraphQLView.as_view(graphiql=True)),
+  path('graphql', FileUploadGraphQLView.as_view(graphiql=True)),
 ]
 ```
 
