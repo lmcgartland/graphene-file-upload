@@ -140,8 +140,6 @@ Writing test using [django's test client](https://docs.djangoproject.com/en/3.1/
 To use pytest define a simple fixture using the query helper below
 
 ```py
-# Create a fixture using the file_graphql_query helper and `client` fixture from `pytest-django`.
-
 import json
 
 from django.core.files.uploadedfile import SimpleUploadedFile
