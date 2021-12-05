@@ -25,6 +25,7 @@ Upload is a scalar type.
 import graphene
 from graphene_file_upload.scalars import Upload
 
+
 class UploadMutation(graphene.Mutation):
     class Arguments:
         file = Upload(required=True)
@@ -46,6 +47,7 @@ GraphQL view).
 from django.urls import path
 from graphene_file_upload.django import FileUploadGraphQLView
 
+
 urlpatterns = [
   path(r'^graphql', FileUploadGraphQLView.as_view(graphiql=True)),
 ]
@@ -62,6 +64,7 @@ Simply import the modified view and create a new url rule on your app:
 ```python
 from flask import Flask
 from graphene_file_upload.flask import FileUploadGraphQLView
+
 
 app = Flask(__name__)
 app.debug = True
@@ -104,15 +107,7 @@ def client():
     os.unlink(flaskr.app.config['DATABASE'])
 
 
-@pytest.fixture
-def client_query(client):
-    def func(*args, **kwargs):
-        return file_graphql_query(*args, **kwargs, client=client)
-
-    return func
-
-# Test your query using the client_query fixture
-def test_some_query(client_query):
+def test_some_query(client):
     with tempfile.NamedTemporaryFile() as test_file:
         test_file.write(b"test")
         test_file.seek(0)
@@ -148,23 +143,15 @@ To use pytest define a simple fixture using the query helper below
 # Create a fixture using the file_graphql_query helper and `client` fixture from `pytest-django`.
 
 import json
-import pytest
 
 from django.core.files.uploadedfile import SimpleUploadedFile
 from graphene_file_upload.testing import file_graphql_query
 
-@pytest.fixture
-def client_query(client):
-    def func(*args, **kwargs):
-        return file_graphql_query(*args, **kwargs, client=client)
 
-    return func
-
-# Test your query using the client_query fixture
-def test_some_query(client_query):
+def test_some_query(client):
     test_file = SimpleUploadedFile(name='test.txt', content=b"test")
     
-    response = client_query(
+    response = file_graphql_query(
         '''
         mutation testMutation($file: Upload!) {
             myUpload(fileIn: $file) {
@@ -174,6 +161,7 @@ def test_some_query(client_query):
         ''',
         op_name='testMutation',
         files={'file': test_file},
+        client=client,
     )
 
     content = json.loads(response.content)
@@ -182,13 +170,13 @@ def test_some_query(client_query):
 
 #### Using unittest
 
-Your endpoint is set through the `GRAPHQL_URL` attribute on `GraphQLFileUploadTestCase`. The default endpoint is `GRAPHQL_URL = “/graphql/”`.
+Your endpoint is set through the `GRAPHQL_URL` attribute on `GraphQLFileUploadTestCase`. The default endpoint is `GRAPHQL_URL = “/graphql”`.
 
 ```py
 from django.core.files.uploadedfile import SimpleUploadedFile
-from graphene_file_upload.django.testing import GraphQLFileUploadTestCase
+from graphene_file_upload.django.testing import GraphQLFileUploadSimpleTestCase
 
-class MutationTestCase(GraphQLFileUploadTestCase):
+class MutationTestCase(GraphQLFileUploadSimpleTestCase):
    def test_some_mutation(self):
         test_file = SimpleUploadedFile(name='test.txt', content=b"test")
 
