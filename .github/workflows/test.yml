@@ -15,7 +15,7 @@ jobs:
       fail-fast: true
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [2.7, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, '3.10.0-beta.1']
+        python-version: [2.7.x, 3.4.x, 3.5.x, 3.6.x, 3.7.x, 3.8.x, 3.9.x, '3.10.0-beta.1']
 
     steps:
       - uses: actions/checkout@v2
