@@ -46,8 +46,3 @@ def file_graphql_query(
     client_post = create_client_post(client)
     return testingbase.file_graphql_query(
         query, op_name, input_data, variables, headers, files, client_post, graphql_url)
-
-
-class GraphQLFileUploadTestCase(testingbase.GraphQLFileUploadTestMixin, TestCase):
-    def setUp(self) -> None:
-        self.client_post = create_client_post(self.client)
