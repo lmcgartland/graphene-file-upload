@@ -37,6 +37,6 @@ app.add_url_rule(
     view_func=FileUploadGraphQLView.as_view(
         'graphql',
         graphiql=True,
-        schema=schema,
+        schema=schema.graphql_schema,
     )
 )

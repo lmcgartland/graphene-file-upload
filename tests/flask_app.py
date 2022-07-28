@@ -10,7 +10,7 @@ def create_app(schema, path='/graphql'):
         path,
         view_func=FileUploadGraphQLView.as_view(
             'graphql',
-            schema=schema,
+            schema=schema.graphql_schema,
         ),
     )
     return app
