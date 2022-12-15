@@ -13,7 +13,7 @@ here = path.abspath(path.dirname(__file__))
 # except(IOError, ImportError):
 #     long_description = open('README.md').read()
 
-long_description = open('README.rst').read()
+long_description = open('README.rst', encoding="utf8").read()
 
 flask_requires = [
     'Flask>=1.0.2',
